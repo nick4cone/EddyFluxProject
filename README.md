@@ -1,6 +1,6 @@
 # EddyFluxProject
 ## Notes
-Analytis SST defined in cime/src/components/data\_comps/docn/
+Analytic SST defined in cime/src/components/data\_comps/docn/
 
 ## Aquaplanet Simulation 1
 SST: Zonally symmetric

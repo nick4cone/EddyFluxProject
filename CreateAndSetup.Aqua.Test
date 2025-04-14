@@ -1,0 +1,14 @@
+#!/bin/sh
+CASENAME=CAM_6_4_025_20240829_ne16_ne16_mg17_Aqua_Test
+
+~/CAM_6_4_025_20240829/cime/scripts/create_newcase --compset 2000_CAM40_SLND_SICE_DOCN%AQP4_SROF_SGLC_SWAV --res ne16_ne16_mg17 --case ~/CAM_6_4_025_20240829_cases/$CASENAME --run-unsupported --project UMIC0106
+cd ~/CAM_6_4_025_20240829_cases/$CASENAME
+
+./xmlchange DOUT_S=FALSE
+./xmlchange STOP_OPTION=ndays,STOP_N=2
+./xmlquery CAM_CONFIG_OPTS
+./xmlchange --file env_build.xml --id CAM_CONFIG_OPTS --val "--phys kessler --analytic_ic"
+./xmlquery CAM_CONFIG_OPTS
+./xmlchange JOB_WALLCLOCK_TIME=01:00:00
+./pelayout
+./case.setup
