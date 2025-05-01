@@ -1,0 +1,10 @@
+! Users should add all user specific namelist changes below in the form of 
+! namelist_var = new_namelist_value 
+analytic_ic_type = 'moist_baroclinic_wave_dcmip2016'
+empty_htapes     = .TRUE.
+avgflag_pertape  = 'A'
+fincl1           = 'VT:A','VU:A','VV:A','VQ:A','QQ:A','OMEGAQ:A','OMEGAT:A','OMEGAU:A','OMEGAV:A','OMGAOMGA:A','TT:A','UU:A','U:A','CLOUD:A','TMQ:A','CLOUDTOT:A','V:A','SST:A','PHIS:A','PRECC:A','PRECL:A','PS:A','Q:A','T:A','OMEGA:A','T850:A','U850:A','V850:A','Z3:A','ZZ:A'
+NHTFRQ           = -720
+MFILT            = 40
+NDENS            = 2
+interpolate_output = .TRUE.

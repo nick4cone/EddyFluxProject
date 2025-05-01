@@ -1,0 +1,15 @@
+#!/bin/sh
+CASENAME=CAM_6_4_025_20240829_ne16_ne16_mg17_Aqua_Perturbation_New
+
+~/CAM_6_4_025_20240829/cime/scripts/create_newcase --compset 2000_CAM40_SLND_SICE_DOCN%AQP4_SROF_SGLC_SWAV --pecount 512 --res ne16_ne16_mg17 --case ~/CAM_6_4_025_20240829_cases/$CASENAME --run-unsupported --project UMIC0106
+cd ~/CAM_6_4_025_20240829_cases/$CASENAME
+
+./xmlchange DEBUG=FALSE
+./xmlchange DOUT_S=FALSE
+./xmlchange STOP_OPTION=nmonths,STOP_N=36
+./xmlquery CAM_CONFIG_OPTS
+./xmlchange --file env_build.xml --id CAM_CONFIG_OPTS --val "--phys cam4 --analytic_ic --aquaplanet"
+./xmlquery CAM_CONFIG_OPTS
+./xmlchange JOB_WALLCLOCK_TIME=03:00:00
+./pelayout
+./case.setup
